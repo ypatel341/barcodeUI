@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
-import { Route, Router } from 'react-router';
-import History from 'history'
 import "./styles/styles.css"
-import Login from './Pages/Login/Login'
-import SamplePage from './Pages/SamplePage/SamplePage'
 import { Layout } from 'antd'
-import { createBrowserHistory } from 'history';
+import Login from './Pages/Login/Login'
+import Home from './Pages/Home/Home'
+import { Route, BrowserRouter, Switch, Redirect } from 'react-router-dom';
 
-const history = createBrowserHistory();
+// const history = createBrowserHistory();
 const { Content, Header, Footer, Sider } = Layout;
 
 const styles = {
@@ -37,16 +35,18 @@ class App extends Component {
 
   render() {
     return (
-      <Router history={history}>
         <Layout style={appStyle}>
           <Header style={headerStyle}>
           </Header>
-          <Content style={contentStyle}>
-            <Route exact path="/" component={Login} />
-          </Content>
+          <BrowserRouter history={history}>
+            <Switch>
+              <Content style={contentStyle}>
+                <Route exact path="/" component={Login} />
+                <Route exact path="/home" component={Home} />
+              </Content>
+            </Switch>
+          </BrowserRouter>
         </Layout>
-      </Router>
-
     )
   }
 }

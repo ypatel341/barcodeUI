@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { connect } from 'react-redux';
+import {
+  BrowserRouter as Router,
+  Link
+} from "react-router-dom";
 import { tryLogin } from "../../Actions/LoginAction"
 
 class Login extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     var map = { username: e.target.username.value, password: e.target.password.value}
-    this.props.tryLogin(map)
+    //this.props.tryLogin(map)
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
@@ -48,9 +52,13 @@ class Login extends React.Component {
           <a className="loginformforgot" style={{float: "right"}} href="">
             Forgot password
           </a>
-          <Button type="primary" htmlType="submit" style={{width: "100%"}} className="loginformbutton">
-            Log in
-          </Button>
+          <Link to={
+            { pathname: "/home",
+              myCustomProps: "product" }}>
+            <Button type="primary" htmlType="submit" style={{width: "100%"}} className="loginformbutton">
+              Log in
+            </Button>
+          </Link>
           Or <a href="">register now!</a>
         </Form.Item>
       </Form>
