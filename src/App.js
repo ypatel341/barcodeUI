@@ -17,7 +17,13 @@ const styles = {
   },
   contentStyle: {
     backgroundColor: 'rgb(240, 242, 245)',
-  }
+  },
+  headerStyle: {
+    padding: '0px',
+    margin: '0px',
+    boxShadow: '0px 1px 1px rgba(0,0,0,.1)',
+    zIndex: 5,
+  },
 };
 
 const {
@@ -33,6 +39,8 @@ class App extends Component {
     return (
       <Router history={history}>
         <Layout style={appStyle}>
+          <Header style={headerStyle}>
+          </Header>
           <Content style={contentStyle}>
             <Route exact path="/" component={Login} />
           </Content>

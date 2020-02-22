@@ -1,0 +1,4 @@
+//Login Consts
+export const LOADING_LOGIN_REQUEST = "LOADING_LOGIN_REQUEST"
+export const FAIL_LOGIN = "FAIL_LOGIN"
+export const SUCCESS_LOGIN = "SUCCESS_LOGIN"
