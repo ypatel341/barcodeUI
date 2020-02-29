@@ -5,7 +5,6 @@ import store from './Store'
 import rootReducer from './Reducers'
 import App from './App'
 
-
 render(
   <Provider store={store}>
     <App />

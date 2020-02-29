@@ -3,9 +3,10 @@ import "./styles/styles.css"
 import { Layout } from 'antd'
 import Login from './Pages/Login/Login'
 import Home from './Pages/Home/Home'
+import GenericForm from './Pages/Form/GenericForm'
 import { Route, BrowserRouter, Switch, Redirect } from 'react-router-dom';
 
-// const history = createBrowserHistory();
+//const history = createBrowserHistory();
 const { Content, Header, Footer, Sider } = Layout;
 
 const styles = {
@@ -18,7 +19,7 @@ const styles = {
   },
   headerStyle: {
     padding: '0px',
-    margin: '0px',
+    marginBottom: '5%',
     boxShadow: '0px 1px 1px rgba(0,0,0,.1)',
     zIndex: 5,
   },
@@ -42,7 +43,8 @@ class App extends Component {
             <Switch>
               <Content style={contentStyle}>
                 <Route exact path="/" component={Login} />
-                <Route exact path="/home" component={Home} />
+                <Route exact path="/Home" component={Home} />
+                <Route exact path='/Form' component={GenericForm} />
               </Content>
             </Switch>
           </BrowserRouter>
